@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useContext } from "react";
 
 import { AuthContext } from "../context/AuthContext";
@@ -30,70 +30,72 @@ const ProtectedRoute = ({ children }) => {
 
 const AppRoutes = () => {
   return (
-    <Routes>
+    <HashRouter>
+      <Routes>
 
-      {/* Public */}
-      <Route path="/" element={<Home />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
+        {/* Public */}
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
 
-      {/* Protected */}
+        {/* Protected */}
 
-      <Route
-        path="/dashboard"
-        element={
-          <ProtectedRoute>
-            <Dashboard />
-          </ProtectedRoute>
-        }
-      />
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
 
-      <Route
-        path="/create-ride"
-        element={
-          <ProtectedRoute>
-            <CreateRide />
-          </ProtectedRoute>
-        }
-      />
+        <Route
+          path="/create-ride"
+          element={
+            <ProtectedRoute>
+              <CreateRide />
+            </ProtectedRoute>
+          }
+        />
 
-      <Route
-        path="/search-ride"
-        element={
-          <ProtectedRoute>
-            <SearchRide />
-          </ProtectedRoute>
-        }
-      />
+        <Route
+          path="/search-ride"
+          element={
+            <ProtectedRoute>
+              <SearchRide />
+            </ProtectedRoute>
+          }
+        />
 
-      <Route
-        path="/ride/:id"
-        element={
-          <ProtectedRoute>
-            <RideDetails />
-          </ProtectedRoute>
-        }
-      />
+        <Route
+          path="/ride/:id"
+          element={
+            <ProtectedRoute>
+              <RideDetails />
+            </ProtectedRoute>
+          }
+        />
 
-      <Route
-        path="/chat/:rideId"
-        element={
-          <ProtectedRoute>
-            <Chat />
-          </ProtectedRoute>
-        }
-      />
+        <Route
+          path="/chat/:rideId"
+          element={
+            <ProtectedRoute>
+              <Chat />
+            </ProtectedRoute>
+          }
+        />
 
-      <Route
-        path="/profile"
-        element={
-          <ProtectedRoute>
-            <Profile />
-          </ProtectedRoute>
-        }
-      />
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          }
+        />
 
-    </Routes>
+      </Routes>
+    </HashRouter>
   );
 };
 
